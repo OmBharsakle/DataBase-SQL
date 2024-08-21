@@ -2,21 +2,6 @@
 
 This repository contains SQL scripts to manage an employee database. The scripts allow you to perform various operations such as adding employees, retrieving information, updating records, and deleting employees from the database.
 
-## Table of Contents
-
-- [Table Schema](#table-schema)
-- [Add a New Employee](#add-a-new-employee)
-- [Add Multiple Employees](#add-multiple-employees)
-- [Retrieve All Employees](#retrieve-all-employees)
-- [Retrieve Specific Columns](#retrieve-specific-columns)
-- [Find Employees by Role](#find-employees-by-role)
-- [Search Employees by Name](#search-employees-by-name)
-- [Find Employees by Age and Salary](#find-employees-by-age-and-salary)
-- [Update Employee Salary](#update-employee-salary)
-- [Update Employee Address](#update-employee-address)
-- [Remove an Employee](#remove-an-employee)
-- [Delete Employees by Age](#delete-employees-by-age)
-
 ## Table Schema
 
 First, create the `employees` table with the following schema:
@@ -24,12 +9,12 @@ First, create the `employees` table with the following schema:
 ```sql
 CREATE TABLE employees (
     id INT PRIMARY KEY,
-    name VARCHAR(100),
-    role VARCHAR(50),
-    salary DECIMAL(10, 2),
+    name TEXT,
+    role TEXT,
+    salary INT,
     age INT,
-    address VARCHAR(255),
-    phone VARCHAR(15)
+    address TEXT,
+    phone INT
 );
 ```
 
@@ -37,15 +22,15 @@ CREATE TABLE employees (
 ### Add a new employee with all details:
 ```sql
 INSERT INTO employees (id, name, role, salary, age, address, phone)
-VALUES (1, 'John Doe', 'Manager', 75000.00, 35, '123 Main St', '123-456-7890');
+VALUES (1, 'Om Bharsakle', 'Manager', 75000, 25, '101 Kailas Nagar ', '7490835410');
 ```
 ## Add Multiple Employees
 ### Add multiple employees with selective data:
 ```sql
 INSERT INTO employees (id, name, role, salary)
 VALUES 
-(2, 'Jane Smith', 'Developer', 65000.00),
-(3, 'Emily Johnson', 'Sales', 50000.00);
+(2, 'Prful', 'Developer', 65000),
+(3, 'Avesh', 'Sales', 50000);
 ```
 
 ## Retrieve All Employees
@@ -69,7 +54,7 @@ SELECT * FROM employees WHERE role = 'Manager';
 ## Search Employees by Name
 ### Search for employees with names containing "An" (case-insensitive):
 ```sql
-SELECT * FROM employees WHERE LOWER(name) LIKE '%an%';
+SELECT * FROM employees WHERE LIKE '%an%';
 ```
 
 ## Find Employees by Age and Salary
@@ -81,13 +66,13 @@ SELECT * FROM employees WHERE age > 30 AND salary > 70000;
 ## Update Employee Salary
 ### Change the salary of an employee with ID 100:
 ```sql
-UPDATE employees SET salary = 80000.00 WHERE id = 100;
+UPDATE employees SET salary = 80000 WHERE id = 100;
 ```
 
 ## Update Employee Address
 ### Update the address for employees in the 'Sales' role:
 ```sql
-UPDATE employees SET address = '456 New Address' WHERE role = 'Sales';
+UPDATE employees SET address = '102 Angan Recidency' WHERE role = 'Sales';
 ```
 
 ## Remove an Employee
